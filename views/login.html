@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/singup.css">
+</head>
+<body>
+    <div class="container col-md-5" style="margin-top: 110px;">
+        <div class="text-center">
+            <img src="./img/logo.png" alt="Logo" width="150">
+            <h3 style="font-weight: bold;">Sign In</h3>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="signup-form" class="form">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        <div id="password-feedback"></div>
+                    </div>
+                    <div class="form-group text-center"> <!-- Center-align the button -->
+                        <button type="submit" class="btn">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="./js/login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script>
+        // Password validation
+        document.getElementById('password').addEventListener('input', function () {
+            var password = this.value;
+            var passwordFeedback = document.getElementById('password-feedback');
+            
+            var hasUpperCase = /[A-Z]/.test(password);
+            var hasLowerCase = /[a-z]/.test(password);
+            var hasDigit = /\d/.test(password);
+            var hasSpecialChar = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password);
+
+            if (hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar && password.length >= 8) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+                passwordFeedback.innerHTML = '';
+            } else {
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+                passwordFeedback.innerHTML = 'Password should include at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long.';
+            }
+        });
+    </script>
+</body>
+</html>
