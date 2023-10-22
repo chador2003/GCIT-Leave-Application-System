@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type:String,
-        required: [true, 'please select gender']
     },
     verified:{
         type: Boolean,

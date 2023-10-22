@@ -1,0 +1,141 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+}
+
+/* overall Container(C) */
+.c{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Change passwod div */
+.change-password, .track-leave{
+    background-color: #F59839;
+    margin: 40px;
+    padding: 10px;
+    text-align: center;
+    width: 25%;
+    border-radius: 5px;
+}
+p{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* form div */
+.text-center input[type=submit]{
+    width: 100px;
+    height: 35px;
+    background: #F59839;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 20px;
+    border: 2px solid black;
+    width: 45%;
+    box-shadow: 2px 2px #cac8c8;  
+    padding-top: 40px;
+    padding-bottom: 40px; 
+    font-size: 18px;
+}
+.horizontal-line-input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    padding: 0;
+    margin: 0;
+  }
+
+  .horizontal-line-input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+/* table div */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+th, td {
+    border: 2px solid #000; /* Add borders to cells */
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2; /* Add a background color for headers */
+}
+
+i {
+    cursor: pointer;
+}
+
+button.delete-button {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    cursor: pointer;
+}
+
+a.edit-link {
+    text-decoration: none;
+    color: black;
+}
+
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Hide file input in modal */
+.modal-file-input {
+    display: none;
+}
+
+/* Alert */
+
+
+.alert{
+    text-align: center; 
+}
+
+.alert--error{
+    background-color: #eb4d4b;
+}
+.alert--success{
+    background-color: green;
+}
+

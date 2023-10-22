@@ -14,3 +14,12 @@ exports.getSignupForm = (req, res) =>{
 exports.getLandingPage = (req, res) =>{
     res.sendFile(path.join(__dirname, '../', 'views', 'landing.html'))
 }
+//Submit Leave Application Page
+exports.getLeaveApplicationPage = (req, res)=>{
+    res.sendFile(path.join(__dirname, '../', 'views', 'form.html'))
+}
+
+//User Profile Page
+exports.getProfilePage = (req, res)=>{
+    res.sendFile(path.join(__dirname, '../', 'views', 'myProfile.html'))
+}

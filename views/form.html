@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Bootstrap  -->
+
+    <!-- CSS Styles  -->
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/form.css">
+
+    <!-- CSS Styles  -->
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- Nav Bar  -->
+    <nav class="container-fluid p-0">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <img src="./img/Logo.png" alt="">
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">Register</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+    <!-- Nav End -->
+
+    <div class="leave">
+        <p>Apply Leave</p>
+    </div>
+
+
+    <!-- Form Start -->
+     <div class="container">
+        <form id="leaveForm" class="form" enctype="multipart/form-data">
+
+            <!-- Common Fields -->
+            <div class="field">
+                <label for="leavingDate">Leaving Date:</label>
+                <input type="date" id="leavingDate" name="leavingDate">
+            </div>
+            <br>
+
+            <div class="field">
+                <label for="reportingDate">Reporting Date:</label>
+                <input type="date" id="reportingDate" name="reportingDate">
+            </div>
+            <br>
+            
+            <div class="field">
+                <label for="course">Course & Section:</label>
+                <select id="course" name="course">
+                <option value="">Select Course & Section</option>
+                <option value="IT 'A' 4th year">IT 'A' 4th year</option>
+                <option value="IT 'B' 4th year">IT 'B' 4th year</option>
+                <option value="CS 4th year">CS 4th year</option>
+                <option value="AI 'A' 3rd year">AI 'A' 3rd year</option>
+                <option value="AI 'B' 3rd year">AI 'B' 3rd year</option>
+                <option value="Fullstack 3rd year">Fullstack 3rd year</option>
+                <option value="Blockchain 3rd year">TBlockchain 3rd year</option>
+                <option value="AI 'A' 2nd year">AI 'A' 2nd year</option>
+                <option value="AI 'B' 2nd year">AI 'B' 2nd year</option>
+                <option value="Fullstack 2nd year">Fullstack 2nd year</option>
+                <option value="Blockchain 2nd year">Blockchain 2nd year</option>
+                <option value="SIDD 2nd year">SIDD 2nd year</option>
+                <option value="SOC 'A' 1st year">SOC 'A' 1st year</option>
+                <option value="SOC 'B' 1st year">SOC 'B' 1st year</option>
+                <option value="SOC 'C' 1st year">SOC 'C' 1st year</option>
+                <option value="SOC 'D' 1st year">SOC 'A' 1st year</option>
+                <option value="SIDD 1st year">SIDD 1st year</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="field">
+                <label for="leaveCategory">Leave Category:</label>
+                <select id="leaveCategory" name="leaveCategory">
+                <option value="">Select category of leave</option>
+                <option value="shortTerm">Short Term Leave</option>
+                <option value="longTerm">Long Term Leave</option>
+                <option value="emergency">Emergency Leave</option>
+                <option value="travel">Travel Leave</option>
+                </select>
+            </div>
+            <br>
+        
+            <!-- Short Term Leave Reason -->
+            <div id="shortTermField" style="display: none;">
+            <label for="shortTermReason">Reason for Short Term Leave:</label>
+            <textarea id="shortTermReason" name="shortTermReason"></textarea>
+            </div>
+        
+            <!-- Long Term Leave File Upload -->
+            <div class="field" id="longTermFields" style="display: none;">
+            <label for="longTermFile">Upload files: </label>
+            <input type="file" id="longTermFile" name="longTermFile">
+            </div>
+        
+
+            <!-- Emergency Leave Sick Person Name -->
+            <div id="emergencyFields" class="field" style="display: none;">
+            <label for="sickPersonName">Name of Sick Person:</label>
+            <input type="text" id="sickPersonName" name="sickPersonName">
+            </div>
+        
+            <!-- Travel Leave Destination and File Upload -->
+            <div id="travelFields" class="field1" style="display: none;">
+            <label for="travelFile">Upload Travel Document:</label>
+            <input type="file" id="travelFile" name="travelFile">
+            </div>
+        
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+            
+        </form>
+     </div>
+    <!-- Form End -->
+
+        
+        <script>
+            // Get references to form elements
+                const leaveCategoryDropdown = document.getElementById('leaveCategory');
+                const longTermFields = document.getElementById('longTermFields');
+                const emergencyFields = document.getElementById('emergencyFields');
+                const travelFields = document.getElementById('travelFields');
+
+                // Event listener for leave category dropdown
+                leaveCategoryDropdown.addEventListener('change', function () {
+                // Hide all field sections
+                longTermFields.style.display = 'none';
+                emergencyFields.style.display = 'none';
+                travelFields.style.display = 'none';
+
+                // Show the selected field section
+                const selectedCategory = this.value;
+                document.getElementById(selectedCategory + 'Fields').style.display = 'flex';
+
+            });
+
+        </script>   
+        <script>
+                const shortTermFields = document.getElementById('shortTermField');
+                leaveCategoryDropdown.addEventListener('change', function () {
+                // Hide all field sections
+                shortTermFields.style.display = 'none';
+
+                // Show the selected field section
+                const selectedCategory = this.value;
+                document.getElementById(selectedCategory + 'Field').style.display = 'block';
+                });
+            
+        </script> 
+
+   
+    <!-- Footer -->
+    <footer>
+        <section class="footer">
+            <img src="./img/Logo.png" alt="Logo" class="type2">
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-facebook" style="color: #e3e3e3;"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram" style="color: #e3e3e3;"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube" style="color: #e3e3e3;"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter" style="color: #e3e3e3;"></i></a>
+            </div>
+            <p class="copyright">
+                Copyright@GCITLA
+            </p>
+        </section>
+    
+
+    </footer>
+    <!-- Footer End  -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/c8c9e54473.js" crossorigin="anonymous"></script>
+    <script type="module" src="./js/addApplication.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    
+
+</body>
+
+</html>
