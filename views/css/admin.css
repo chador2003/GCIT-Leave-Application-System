@@ -1,0 +1,353 @@
+:root {
+  --main-bg-color: #000;
+  --main-text-color: #009d63;
+  --second-text-color: #ffffff;
+  --second-bg-color: #000000;
+}
+
+/* Rest of your CSS code */
+
+/* Change text color to white on hover */
+#myTableMale tr:hover {
+  background: var(--second-bg-color);
+}
+
+#myTableMale tr:hover td {
+  color: white;
+  /* Change text color to white on hover */
+}
+
+#myTableFemale tr:hover {
+  background: var(--second-bg-color);
+}
+
+#myTableFemale tr:hover td {
+  color: white;
+  /* Change text color to white on hover */
+}
+
+
+/* change the table attribute to white */
+
+
+.primary-text {
+  color: var(--main-text-color);
+}
+
+.second-text {
+  color: var(--second-text-color);
+}
+
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+
+#wrapper {
+  overflow-x: hidden;
+  background-image: linear-gradient(to right,
+      #FFFBEB,
+      #FFFBEB,
+      #FFFBEB,
+      #FFFBEB,
+      #FFFBEB,
+      #FFFBEB);
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+
+  background-color: black;
+
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  cursor: pointer;
+}
+
+.list-group-item {
+  border: none;
+  padding: 20px 30px;
+}
+
+.list-group-item.active {
+  background-color: transparent;
+  color: var(--main-text-color);
+  font-weight: bold;
+  border: none;
+}
+
+/* 
+/* cards ghi css */
+
+
+
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.cardBox .card {
+  position: relative;
+  background: orange;
+  padding: 30px;
+  border-radius: 20px;
+  height: 9rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 7px 25px rgba(69, 51, 51, 0.08);
+  transition: background 0.3s, color 0.3s;
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2em;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s;
+}
+
+.cardBox .card .cardName {
+  color: var(--black2);
+  font-size: 1.1em;
+  margin-top: 5px;
+  transition: color 0.3s;
+}
+
+.cardBox .card:hover {
+  background: black;
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx ion-icon {
+  color: white;
+}
+
+/* table ghi css en maray */
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.details .admins {
+  position: relative;
+  display: grid;
+  background: #F59839;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(51, 43, 43, 0.08);
+  border-radius: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.details table thead td {
+  font-weight: 600;
+}
+
+.details .admins table tr {
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(22, 171, 25, 0.1);
+}
+
+.details .admins table tr:hover {
+  background: var(--second-bg-color);
+  color: var(--white);
+}
+
+.details .admins table tr td {
+  padding: 15px 10px
+}
+
+.details .admins table tr td:last-child {
+  text-align: end;
+}
+
+.details .admins table tr td:nth-child(2) {
+  text-align: left;
+}
+
+.btn {
+  position: relative;
+  padding: 5px 10px;
+  background: var(--blue);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+/* css for delete button */
+
+.whit.delete {
+  background: red;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  float: left;
+  /* Add this property to move the button to the left */
+}
+
+
+.status.active {
+  padding: 2px 4px;
+  background: #8de02c;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.inactive {
+  padding: 2px 4px;
+  background: #ea3001;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#myTableBody .whit:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+#myTableBody .whit {
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 12.5px;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+/*  Ga che ghi css ena ma shay */
+
+.errPage a {
+  padding: 20px;
+  background: #21dad4;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.errPage h2 {
+  color: red;
+  font-size: 40px;
+  text-align: center
+}
+
+.errPage>div {
+  margin-bottom: 50px;
+}
+
+.errPage {
+  width: 200px;
+  margin: 100px auto;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around
+}
+
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .admins {
+    overflow-x: auto;
+  }
+}
+
+/* CSS for the icons */
+.cardBox .card .iconBx ion-icon {
+  font-size: 2em;
+  color: var(--black2);
+  transition: color 0.3s;
+}
+
+/* CSS for responsiveness */
+@media (min-width: 768px) {
+  .cardBox {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 10px;
+  }
+
+  .cardBox .card {
+    height: auto;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .cardBox .card .numbers {
+    font-size: 1.5em;
+  }
+
+  .cardBox .card .iconBx ion-icon {
+    font-size: 1.5em;
+  }
+}

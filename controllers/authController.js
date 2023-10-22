@@ -1,4 +1,5 @@
 const User = require('./../models/userModels')
+const Token = require('./../models/Token')
 const jwt = require('jsonwebtoken')
 const AppError = require('./../utils/appError')
 
@@ -20,39 +21,47 @@ const createSendToken = (user, statusCode, res) => {
     })
 }
 
-const signToken = (id) =>{
-    return jwt.sign({id}, process.env.JWT_SECRET, {
+const signToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN,
     })
 }
 
-exports.signup = async (req, res, next)=>{
-   try{
-    const newUser = await User.create(req.body)
-    createSendToken(newUser, 201, res)
-   }catch(err){
-    res.status(500).json({error: err.message});
-   }
+exports.signup = async (req, res, next) => {
+    try {
+        const newUser = await User.create(req.body)
+        createSendToken(newUser, 201, res)
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 }
 
-exports.login = async(req, res, next) => {
-    try{
-        const {email, password} = req.body
+exports.login = async (req, res, next) => {
+    try {
+        const { email, password } = req.body
 
         // 1) Check if email and password exist
-        if (!email || !password){
+        if (!email || !password) {
             return next(new AppError('Please provide an email and password!', 400))
         }
 
         // 2) Check if user exists && password are correct
-        const user = await User.findOne({email}).select('+password')
+        const user = await User.findOne({ email }).select('+password')
         const correct = await user.correctPassword(password, user.password)
 
-        if(!user || !(await user.correctPassword(password, user.password))){
+        if (!user || !(await user.correctPassword(password, user.password))) {
             return next(new AppError('Incorrect email or password', 401))
         }
         createSendToken(user, 201, res)
-    }catch(err){
-       res.status(500).json({error: err.message})
+    } catch (err) {
+        res.status(500).json({ error: err.message })
     }
+}
+
+exports.logout = (req, res) => {
+    res.cookie("token", "", {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    })
+    res.status(200).json({ status: "success" })
 }

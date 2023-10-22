@@ -1,0 +1,11 @@
+.alert {
+  text-align: center;
+}
+
+.alert--error {
+  background-color: #eb4d4b;
+}
+
+.alert--success {
+  background-color: green;
+}

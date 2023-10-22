@@ -8,41 +8,50 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'please provide your email'],
     },
-    email:{
-        type:String,
+    email: {
+        type: String,
         required: [true, 'please provide your email'],
         unique: true,
         lowercase: true,
         validate: [validator.isEmail, 'please provide your email']
     },
-    password:{
-        type:String,
+    password: {
+        type: String,
         required: [true, 'please provide your password!'],
         minlength: 8,
         select: false,
     },
-    passwordConfirm:{
-            type:String,
-            required: [true, "please confirm your password"],
-            //This only works on SAVE!!!
-            validate: function (el){
-                return el === this.password
-            },
-            message: 'Passwords are not the same',
+    passwordConfirm: {
+        type: String,
+        required: [true, "please confirm your password"],
+        //This only works on SAVE!!!
+        validate: function (el) {
+            return el === this.password
+        },
+        message: 'Passwords are not the same',
     },
     gender: {
-        type:String,
-        required: [true, 'please select gender']
+        type: String,
     },
-    verified:{
+    role_id: {
+        type: Number,
+        enum: [0, 1],
+        default: 0
+    },
+    role: {
+        type: String,
+        enum: ["Administrator", "Male-SSO", "Female-SSO"]
+    },
+
+    verified: {
         type: Boolean,
-        default:false
+        default: false
     }
 })
 
-userSchema.pre('save', async function(next){
+userSchema.pre('save', async function (next) {
     // Only run this function oif password was actually modified
-    if (!this.isModified('password'))return next()
+    if (!this.isModified('password')) return next()
 
     // Hash the password with cost of 12
     this.password = await bcrypt.hash(this.password, 12)
@@ -50,12 +59,12 @@ userSchema.pre('save', async function(next){
     //Delete passwordConfirm field
     this.passwordConfirm = undefined
 })
-userSchema.pre('findOneAndUpdate', async function (next){
+userSchema.pre('findOneAndUpdate', async function (next) {
     const update = this.getUpdate();
     if (update.passowrd !== '' &&
         update.password !== undefined &&
-        update.password == update.passwordConfirm){
-        
+        update.password == update.passwordConfirm) {
+
         //Hash the password with cost of 12
         this.getUpdate().password = await bcrypt.hash(update.password, 12)
 
@@ -63,14 +72,14 @@ userSchema.pre('findOneAndUpdate', async function (next){
         update.passwordConfirm = undefined
         next()
 
-    }else
-    next()
+    } else
+        next()
 })
 
 userSchema.methods.correctPassword = async function (
     candidatePassword,
     userPassword,
-){
+) {
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 

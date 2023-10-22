@@ -1,6 +1,6 @@
 import { showAlert } from "./alert.js";
 
-document.querySelector('.form').addEventListener('submit', (e)=>{
+document.querySelector('.form').addEventListener('submit', (e) => {
     e.preventDefault()
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
@@ -19,9 +19,9 @@ export const signup = async (name, email, password, passwordConfirm, gender) => 
                 name,
                 email,
                 password,
-                passwordConfirm, 
-                gender       
-             },
+                passwordConfirm,
+                gender
+            },
         })
 
         if (res.data.status === 'success') {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/singup.css">
 </head>
+
 <body>
     <div class="container col-md-5">
         <div class="text-center">
@@ -24,17 +26,20 @@
                         <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                            required>
                         <div id="password-feedback"></div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password"
+                            placeholder="Confirm Password" required>
                         <div id="password-feedback"></div>
                     </div>
                     <div class="form-group text-center" style="font-size: 13px;"> <!-- Center-align the button -->
                         <label>Gender:</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
+                            <input type="radio" class="form-check-input" id="female" name="gender" value="female"
+                                required>
                             <label class="form-check-label" for="female">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -61,7 +66,7 @@
         document.getElementById('password').addEventListener('input', function () {
             var password = this.value;
             var passwordFeedback = document.getElementById('password-feedback');
-            
+
             var hasUpperCase = /[A-Z]/.test(password);
             var hasLowerCase = /[a-z]/.test(password);
             var hasDigit = /\d/.test(password);
@@ -79,4 +84,5 @@
         });
     </script>
 </body>
+
 </html>
