@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Segoe UI';
     font-weight: 400;
     background-color: white;
@@ -15,13 +15,14 @@ body{
     background-color: #272727;
 }
 
-.footer .social{
+.footer .social {
     text-align: center;
     padding-bottom: 25px;
     border-bottom: 1px solid silver;
     color: white;
 }
-.footer .social a{
+
+.footer .social a {
     font-size: 24px;
     color: white;
     width: 40px;
@@ -32,11 +33,12 @@ body{
     margin: 0 1px;
     opacity: 0.8;
 }
+
 .footer .social a:hover {
     opacity: 1;
 }
 
-.footer ul{
+.footer ul {
     margin-top: 0;
     padding: 25px;
     list-style: none;
@@ -45,16 +47,19 @@ body{
     margin-bottom: 0;
     text-align: center;
 }
-.footer ul li a{
+
+.footer ul li a {
     color: white;
     text-decoration: none;
     opacity: 0.8;
 }
-.footer ul li{
+
+.footer ul li {
     display: inline-block;
     padding: 0 15px;
 }
-.footer ul li a:hover{
+
+.footer ul li a:hover {
     opacity: 1;
 }
 
@@ -65,7 +70,7 @@ body{
     font-size: 13px;
 }
 
-.type2{
+.type2 {
     width: 12%;
     display: block;
     margin: 60px auto;

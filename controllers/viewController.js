@@ -26,3 +26,12 @@ exports.getAdmUsers = (req, res) => {
 exports.getAdmLoginForm = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views/admin', 'admLogin.html'))
 }
+//Submit Leave Application Page
+exports.getLeaveApplicationPage = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'form.html'))
+}
+
+//User Profile Page
+exports.getProfilePage = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'myProfile.html'))
+}

@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: serif;
+}
+
+.field {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+
+}
+
+.leave {
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 35px;
+    width: 300px;
+    background-color: #F59839;
+    border-radius: 5px;
+    margin: auto;
+    color: white;
+    margin-top: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 100px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.form {
+    /* border: 1px solid rgb(69, 66, 66); */
+    box-shadow: 4px 4px 8px rgb(71, 70, 70);
+    width: 50%;
+    height: 100%;
+    padding: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+button {
+    border: none;
+    width: 120px;
+    height: 40px;
+    background-color: #F59839;
+    border-radius: 5px;
+    color: white;
+}
+
+.field1 {
+    display: flex;
+}
+
+input,
+select {
+    width: 60%;
+}
+
+textarea {
+    width: 100%;
+}
+
+
+/* Responsive styles for tablets (up to 768px) */
+@media (max-width: 768px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        /* Adjust the form width for tablets */
+    }
+}
+
+/* Responsive styles for mobile (up to 480px) */
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+        /* Adjust the form width for mobile */
+        padding: 20px;
+        /* Reduce the padding for mobile */
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        /* Full width for input fields on mobile */
+    }
+}
+
+.alert {
+    text-align: center;
+}
+
+.alert--error {
+    background-color: #eb4d4b;
+}
+
+.alert--success {
+    background-color: green;
+}
