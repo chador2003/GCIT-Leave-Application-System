@@ -18,7 +18,7 @@
     "install": "^0.13.0",
     "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.5.3",
+    "mongoose": "^14.20.1",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.7",
     "validator": "^13.11.0"
