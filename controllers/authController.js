@@ -120,3 +120,13 @@ exports.updatePassword = async (req, res, next) => {
         res.status(500).json({ error: err.message });
     }
 }
+
+exports.logout = (req, res) => {
+    res.cookie("token", "", {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    })
+    res.status(200).json({ status: "success" })
+}
+
+

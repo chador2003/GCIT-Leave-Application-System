@@ -35,3 +35,13 @@ exports.getLeaveApplicationPage = (req, res) => {
 exports.getProfilePage = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'myProfile.html'))
 }
+
+
+exports.getRequestLeave = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views/admin', 'requestLeave.html'))
+}
+
+
+exports.getApprovedLeave = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views/admin', 'approvedLeave.html'))
+}

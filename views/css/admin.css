@@ -271,31 +271,76 @@
 
 /*  Ga che ghi css ena ma shay */
 
-.errPage a {
-  padding: 20px;
-  background: #21dad4;
-  border-radius: 30px;
-  border: 1px solid black;
+/* Styling for User Container */
+/* Styling for User Container */
+.user-container {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.user-container i {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #007bff;
+}
+
+.user-container span {
+  font-size: 16px;
+  margin-right: 5px;
+  /* Add margin between name and role */
+}
+
+/* Rest of the styles remain unchanged */
+
+
+.user-container i {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #36c582;
+}
+
+.user-container span {
+  font-size: 16px;
+}
+
+/* Styling for Error Page */
+.errPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.contErr {
+  margin-bottom: 20px;
 }
 
 .errPage h2 {
-  color: red;
-  font-size: 40px;
-  text-align: center
+  color: #fe3030;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-.errPage>div {
-  margin-bottom: 50px;
+.errPage a {
+  padding: 10px 20px;
+  background: #fe6430;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.3s;
 }
 
-.errPage {
-  width: 200px;
-  margin: 100px auto;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around
+.errPage a:hover {
+  background: #009d63;
 }
+
 
 
 @media (min-width: 768px) {
@@ -351,3 +396,8 @@
     font-size: 1.5em;
   }
 }
+
+/* Additional CSS to style the green and red buttons *
+
+
+/* Add this CSS to your stylesheet or style section */

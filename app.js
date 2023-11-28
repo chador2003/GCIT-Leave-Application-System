@@ -8,6 +8,8 @@ const app = express();
 app.use(express.json())
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
+app.use('/static', express.static('/workspaces/DeVopds/gcit-leave-application/views/img/applications'));
+
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/application', applicationRouter)
 app.use('/', viewRouter)
