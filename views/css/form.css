@@ -2,20 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: serif;
-}
-
-.field {
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+  
+  .form {
+    box-shadow: 4px 4px 8px rgb(71, 70, 70);
+    width: 90%;
+    max-width: 600px;
+    padding: 50px;
+    margin: auto;
+  }
+  
+  .field {
     display: flex;
     justify-content: space-between;
-    padding: 15px;
-
-}
-
-.leave {
+    padding: 25px;
+  }
+  
+  .leave {
     font-size: 21px;
     display: flex;
     flex-direction: column;
@@ -27,90 +43,125 @@ body {
     margin: auto;
     color: white;
     margin-top: 30px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: 100px;
-    margin-top: 50px;
-    align-items: center;
-}
-
-.form {
-    /* border: 1px solid rgb(69, 66, 66); */
-    box-shadow: 4px 4px 8px rgb(71, 70, 70);
-    width: 50%;
-    height: 100%;
-    padding: 50px;
-    padding-left: 150px;
-    padding-right: 150px;
-}
-
-.button-container {
+  }
+  
+  .button-container {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-}
-
-button {
+  }
+  
+  button {
     border: none;
     width: 120px;
     height: 40px;
     background-color: #F59839;
     border-radius: 5px;
     color: white;
-}
-
-.field1 {
+  }
+  
+  .field1 {
     display: flex;
-}
-
-input,
-select {
+  }
+  
+  input,
+  select {
     width: 60%;
-}
-
-textarea {
+  }
+  
+  textarea {
     width: 100%;
-}
-
-
-/* Responsive styles for tablets (up to 768px) */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive styles for tablets (up to 768px) */
+  @media (max-width: 768px) {
     .form {
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-        /* Adjust the form width for tablets */
+      width: 80%;
+      padding: 30px;
     }
-}
-
-/* Responsive styles for mobile (up to 480px) */
-@media (max-width: 480px) {
+  }
+  
+  /* Responsive styles for mobile (up to 480px) */
+  @media (max-width: 480px) {
     .form {
-        width: 100%;
-        /* Adjust the form width for mobile */
-        padding: 20px;
-        /* Reduce the padding for mobile */
+      width: 90%;
+      padding: 20px;
     }
-
+  
     input,
     select,
     textarea {
-        width: 100%;
-        /* Full width for input fields on mobile */
+      width: 100%;
     }
+  }
+  
+
+  .user-options {
+    display: none;
+    position: absolute;
+    background:#FE6430 ;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    list-style: none;
+    left: -120px;
+    top: 30px;
+  }
+  
+  .user-icon {
+    position: relative;
+  }
+  
+  .user-icon:hover .user-options {
+    display: block;
+  }
+  
+  .user-options a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s; 
+  }
+  
+  .user-options:hover {
+    background:black; 
+  }
+  
+  .user-icon.clicked .user-options {
+    display: none;
+  }
+
+
+  
+.user-icon {
+  position: relative;
+
+
 }
 
-.alert {
-    text-align: center;
+.user-icon:hover .user-options {
+  display: block;
 }
 
-.alert--error {
-    background-color: #eb4d4b;
+.user-options a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s; 
 }
 
-.alert--success {
-    background-color: green;
+.user-options:hover {
+  background:black; 
+}
+
+.user-icon.clicked .user-options {
+  display: none;
+}
+
+
+.carousel-item{
+  margin-bottom: 80px;
+}
+
+.far{
+color: white;
 }

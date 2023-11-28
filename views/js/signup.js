@@ -37,9 +37,3 @@ export const signup = async (name, email, password, passwordConfirm, gender) => 
         showAlert('error', 'Error: Passwords are not the same or your email is already used.', message)
     }
 }
-
-
-
-
-
-

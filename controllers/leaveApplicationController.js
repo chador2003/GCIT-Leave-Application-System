@@ -43,34 +43,13 @@ exports.getAllApplication = async (req, res, next) => {
     }
 }
 
-// exports.createApplication = async (req, res)=>{
-//     try{
-//         const newApplication = await application.create(req.body);
-
-//         if(req.file){
-//             req.body.longTermFile = req.file.filename;
-//             req.body.s
-
-//         }
-
-//         res.status(200).json({
-//             status: 'success',
-//             data: {
-//                 application: newApplication,
-//             }
-//         })
-//     }catch(err){
-//         res.status(500).json({ error: err.message})
-//     }
-// }
-
 exports.createApplication = async (req, res) => {
     try {
         const { leaveCategory } = req.body;
 
         // Check if the 'leaveCategory' is 'longTerm' or 'travel' and a file is uploaded
         if ((leaveCategory === 'longTerm' || leaveCategory === 'travel') && req.file) {
-            // Handle the file upload and store the file path in the 'file' field
+            // Handle the file upload and st ore the file path in the 'file' field
             req.body.file = req.file.path; // Assuming req.file.path contains the file path
         }
 
@@ -155,8 +134,9 @@ exports.deleteApplication = async (req, res) => {
 
         if (application1.status === 'pending' || application.status === 'rejected') {
             // Delete the leave application if it's in a "pending" or "rejected" status
-            await LeaveApplication.remove();
-            return res.status(204).send();
+            await application.findByIdAndRemove(req.params.id);
+            // return res.status(204).send();
+            return res.status(200).json({ status: 'success', message: 'Leave Application deleted successfully' });
         } else {
             // If not Pending, return an error
             return res.status(403).json({ error: 'Cannot delete an approved leave application' });
@@ -164,7 +144,7 @@ exports.deleteApplication = async (req, res) => {
     } catch (err) {
         res.status(500).json({
             status: 'fail',
-            message: err,
+            message: err.message,
         })
     }
 }

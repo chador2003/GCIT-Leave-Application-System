@@ -8,6 +8,7 @@ router.post('/login', authController.login)
 router.patch('/updateMyPassword',
    authController.protect, authController.updatePassword)
 
+router.get("/logout", authController.logout)
 router
    .route('/')
    .get(userController.getAllUsers)

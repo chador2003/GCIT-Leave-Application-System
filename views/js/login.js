@@ -20,7 +20,7 @@ const login = async (email, password)=>{
         if (res.data.status === 'success'){
             showAlert('success', 'Logged in succesfully')
             window.setTimeout(()=>{
-                location.assign('/applications')
+                location.assign('/home')
             }, 1500)
             var obj = res.data.data.user
             console.log(obj)

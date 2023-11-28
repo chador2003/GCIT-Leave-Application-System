@@ -4,12 +4,16 @@ const viewsController = require('./../controllers/viewController')
 const authController = require('./../controllers/authController')
 
 router.get('/', viewsController.getLandingPage)
+router.get('/home', viewsController.getIndexPage)
 router.get('/login', viewsController.getLoginForm)
 router.get('/signup', viewsController.getSignupForm)
-router.get('/applications', viewsController.getLeaveApplicationPage)
+router.get('/about', viewsController.getEditAboutUsPage)
+router.get('/applications', authController.protect, viewsController.getLeaveApplicationPage)
 router.get('/myProfile', authController.protect, viewsController.getProfilePage)
+router.get('/editApplication', authController.protect, viewsController.getEditApplicationPage)
 
-
+// Admin View Routes
 router.get('/admusers', viewsController.getAdmUsers)
 router.get('/admLogin', viewsController.getAdmLoginForm)
+
 module.exports = router

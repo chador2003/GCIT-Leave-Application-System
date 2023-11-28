@@ -1,0 +1,27 @@
+/* nav */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+
+.image {
+    width: 130px;
+    height: 130px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+
+
+.row [class^="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+  
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 250px;  
+}
+
+
