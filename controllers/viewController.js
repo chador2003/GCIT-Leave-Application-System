@@ -57,3 +57,12 @@ exports.getAdmLoginForm = (req, res) => {
 }
 
 
+
+exports.getRequestLeave = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views/admin', 'requestLeave.html'))
+}
+
+
+exports.getApprovedLeave = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views/admin', 'approvedLeave.html'))
+}

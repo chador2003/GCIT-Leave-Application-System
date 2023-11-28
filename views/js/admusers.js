@@ -42,10 +42,10 @@ const initialize = async () => {
       deleteButton.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
       td[3].appendChild(deleteButton);
 
-      // css for delete button
+      // CSS for delete button
       deleteButton.style.backgroundColor = 'red';
-      deleteButton.style.borderRadius = '5%';
-      deleteButton.style.padding = '8px';
+      deleteButton.style.borderRadius = '5px';
+      deleteButton.style.padding = '5px'; // Adjust the padding to make it smaller
       deleteButton.style.color = 'white';
 
       // Attach click event listeners for delete buttons
@@ -60,23 +60,78 @@ const initialize = async () => {
 
 initialize();
 
+
+
+// export const deleteUser = async (id) => {
+//   const userConfirmation = confirm("Are you sure you want to delete this user?");
+//   if (userConfirmation) {
+//     try {
+//       const res = await axios({
+//         method: 'DELETE',
+//         url: `http://localhost:4001/api/v1/users/${id}`,
+//       });
+//       if (res.data.status === "success") {
+//         showAlert("success", "User Deleted Successfully!");
+//         window.setTimeout(() => {
+//           location.reload(true);
+//         }, 1000);
+//       }
+//     } catch (err) {
+//       let message =
+//         typeof err.response !== "undefined"
+//           ? err.response.data.message
+//           : err.message;
+//       showAlert("error", message);
+//     }
+//   } else {
+//     // User clicked 'Cancel' on the confirmation dialog
+//     showAlert("info", "Deletion canceled!.");
+//   }
+// };
+
+
 export const deleteUser = async (id) => {
-  try {
-    const res = await axios({
-      method: 'DELETE',
-      url: `http://localhost:4001/api/v1/users/${id}`,
-    });
-    if (res.data.status === 'success') {
-      showAlert('success', 'User Deleted!');
-      window.setTimeout(() => {
-        location.reload(true);
-      }, 1000);
+  const userConfirmation = confirm("Are you sure you want to delete this user?");
+
+  if (userConfirmation) {
+    try {
+      // Fetch the user making the request
+      const currentUserResponse = await axios.get("http://localhost:4001/api/v1/users");
+      const currentUser = currentUserResponse.data.data;
+
+      // Fetch the user to be deleted
+      const userResponse = await axios.get(`http://localhost:4001/api/v1/users/${id}`);
+      const userToDelete = userResponse.data.data;
+
+      // Check if the current user has the privilege to delete the target user
+      if (
+        (currentUser.role_id === 1 && currentUser.role === "Administrator") ||
+        (currentUser.role_id === 1 && currentUser.role === "Male_SSO" && userToDelete.gender === "male") ||
+        (currentUser.role_id === 1 && currentUser.role === "Female_SSO" && userToDelete.gender === "female")
+      ) {
+        const res = await axios({
+          method: 'DELETE',
+          url: `http://localhost:4001/api/v1/users/${id}`,
+        });
+
+        if (res.data.status === "success") {
+          showAlert("success", "User Deleted Successfully!");
+          window.setTimeout(() => {
+            location.reload(true);
+          }, 1000);
+        }
+      } else {
+        showAlert("error", "You don't have permission to delete this user!.");
+      }
+    } catch (err) {
+      let message =
+        typeof err.response !== "undefined"
+          ? err.response.data.message
+          : err.message;
+      showAlert("error", message);
     }
-  } catch (err) {
-    let message =
-      typeof err.response !== 'undefined'
-        ? err.response.data.message
-        : err.message;
-    showAlert('error', message);
+  } else {
+    // User clicked 'Cancel' on the confirmation dialog
+    showAlert("info", "Deletion canceled!.");
   }
 };

@@ -1,5 +1,6 @@
 const application = require('./../models/leaveApplicationModels')
 const multer = require('multer')
+const nodemailer = require("nodemailer")
 
 const multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -27,12 +28,12 @@ exports.application_file = upload.single('file');
 
 exports.getAllApplication = async (req, res, next) => {
     try {
-        const application1 = await application.find()
+        const applications = await application.find()
         res.status(200).json({
             status: 'success',
-            results: application1.length,
+            results: applications.length,
             data: {
-                application1,
+                applications,
             },
         })
     } catch (err) {
@@ -71,13 +72,13 @@ exports.createApplication = async (req, res) => {
 
 exports.getApplication = async (req, res) => {
     try {
-        const application1 = await application.findById(req.params.id)
+        const applications = await application.findById(req.params.id)
 
         res.status(200).json({
             status: 'success',
-            results: application1.length,
+            results: applications.length,
             data: {
-                application1,
+                applications,
             },
         })
     } catch (err) {
@@ -88,13 +89,13 @@ exports.getApplication = async (req, res) => {
 exports.getApplicationByUserId = async (req, res) => {
     try {
         const userId = req.params.id;
-        const application1 = await application.find({ user: userId });
+        const applications = await application.find({ user: userId });
 
         res.status(200).json({
             status: 'success',
-            results: application1.length,
+            results: applications.length,
             data: {
-                application1,
+                applications,
             }
         })
     } catch (err) {
@@ -105,16 +106,53 @@ exports.getApplicationByUserId = async (req, res) => {
 
 exports.updateApplication = async (req, res) => {
     try {
-        const application1 = await application.findById(req.params.id);
-        if (!application1) {
+        const applications = await application.findById(req.params.id);
+        const mail = req.body.email;
+        if (!applications) {
             return res.status(404).json({ error: 'Leave application not found' });
         }
 
         // Check if the status is "pending"
-        if (application1.status === 'pending') {
+        if (applications.status === 'pending') {
+            let transporter = nodemailer.createTransport({
+                host: "smtp.zoho.com",
+                port: 465,
+                secure: true,
+                auth: {
+                    user: "dalaix@zohomail.com",
+                    pass: "tKV6TjUQKkq$Y6x"
+                }
+            })
+            let approvedMessage = {
+                from: "dalaix@zohomail.com",
+                to: mail,
+                subject: "Application Status Update",
+                text: "Your application has been approved"
+            }
+            let rejectedMessage = {
+                from: "dalaix@zohomail.com",
+                to: mail,
+                subject: "Application Status Update",
+                text: "Your application has been rejected"
+            }
+            if (req.body.status === "approved") {
+                transporter.sendMail(approvedMessage).then(async () => {
+                    const updatedApplication = await application.findByIdAndUpdate(req.params.id, req.body, { new: true });
+                    return res.json({ data: updatedApplication, status: 'success' });
+                }).catch(err => {
+                    return res.status(500).json({ err })
+                })
+            }
+            if (req.body.status === "rejected") {
+                transporter.sendMail(rejectedMessage).then(async () => {
+                    const updatedApplication = await application.findByIdAndUpdate(req.params.id, req.body, { new: true });
+                    return res.json({ data: updatedApplication, status: 'success' });
+                }).catch(err => {
+                    return res.status(500).json({ err })
+                })
+            }
+
             // Allow the update if the status is "pending"
-            const updatedApplication = await application.findByIdAndUpdate(req.params.id, req.body, { new: true });
-            return res.json({ data: updatedApplication, status: 'success' });
         } else {
             // If not "pending," prevent the update
             return res.status(403).json({ error: 'Cannot edit a non-pending leave application' });
@@ -124,15 +162,17 @@ exports.updateApplication = async (req, res) => {
     }
 }
 
+
+
 exports.deleteApplication = async (req, res) => {
     try {
-        const application1 = await application.findById(req.params.id);
+        const applications = await application.findById(req.params.id);
 
-        if (!application1) {
+        if (!applications) {
             return res.status(404).json({ error: 'Leave Application not found' })
         }
 
-        if (application1.status === 'pending' || application.status === 'rejected') {
+        if (applications.status === 'pending' || application.status === 'rejected') {
             // Delete the leave application if it's in a "pending" or "rejected" status
             await application.findByIdAndRemove(req.params.id);
             // return res.status(204).send();

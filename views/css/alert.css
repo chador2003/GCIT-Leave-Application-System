@@ -22,9 +22,18 @@
 .alert--error {
   background-color: #FF3333;
   color: white;
+  background-color: #FF3333;
+  color: white;
 }
 
 .alert--success {
+  background-color: #26D701;
+  color: white;
+}
+
+.alert--info {
+  background-color: #e9b078;
+  color: white;
   background-color: #26D701;
   color: white;
 }
