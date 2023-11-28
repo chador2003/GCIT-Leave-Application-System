@@ -77,41 +77,44 @@ const displayApplication =  (applications)=>{
 
 
            // Attach click event listeners for delete and edit buttons
-           editLink.addEventListener("click",function(){getRId(application._id)})
-          //  editLink.addEventListener('click', ()=>updateApplication(application._id, application.data))
-          deleteButton.addEventListener('click', ()=>deleteApplication(application._id))
-
+          deleteButton.addEventListener('click', () => deleteApplication(application._id, application.status))
           
-
     }); 
 }
 
-export const deleteApplication = async (id) => {
+export const deleteApplication = async (id, status) => {
+  // Check if the status is 'approved'
+  if (status === 'approved') {
+      showAlert('error', 'Cannot delete an application with approved status.');
+      return;
+  }
+
   // Display a confirmation dialog
-  const userConfirmation = confirm("Are you sure you want to delete this application?");
-  
+  const userConfirmation = confirm('Are you sure you want to delete this application?');
+
   // Check user's confirmation
   if (userConfirmation) {
       try {
           const res = await axios({
-              method: "DELETE",
+              method: 'DELETE',
               url: `http://localhost:4001/api/v1/application/${id}`,
           });
-          if (res.data.status === "success") {
-              showAlert("success", "Leave Application Deleted!");
+
+          if (res.data.status === 'success') {
+              showAlert('success', 'Leave Application Deleted!');
               window.setTimeout(() => {
                   location.reload(true);
               }, 1000);
           }
       } catch (err) {
           let message =
-              typeof err.response !== "undefined"
+              typeof err.response !== 'undefined'
                   ? err.response.data.message
                   : err.message;
-          showAlert("error", message);
+          showAlert('error', message);
       }
   } else {
       // User clicked 'Cancel' on the confirmation dialog
-      showAlert("info", "Deletion canceled by user.");
+      showAlert('info', 'Deletion canceled by user.');
   }
 };
