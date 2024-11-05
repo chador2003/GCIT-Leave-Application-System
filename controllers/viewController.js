@@ -51,10 +51,10 @@ exports.getAdmUsers = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views/admin', 'admusers.html'))
 }
 
-//  Login Page
-exports.getAdmLoginForm = (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'views/admin', 'admLogin.html'))
-}
+// //  Login Page
+// exports.getAdmLoginForm = (req, res) => {
+//     res.sendFile(path.join(__dirname, '../', 'views/admin', 'admLogin.html'))
+// }
 
 
 

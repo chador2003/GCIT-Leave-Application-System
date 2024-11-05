@@ -41,14 +41,14 @@ userPasswordForm.addEventListener('submit', async(e)=>{
     document.getElementById('confirm-password').value =''
 })
 
-var obj
-if (document.cookie) {
-  obj = JSON.parse(document.cookie.substring(6))
+// var obj
+// if (document.cookie) {
+//   obj = JSON.parse(document.cookie.substring(6))
 
-} else {
-  document.body.innerHTML =
-    "<div class='errPage'><div class='contErr'><h2>You are not logged in!!</h2></div><div><a href='/login'>Log in</a></div></div>"
-}
+// } else {
+//   document.body.innerHTML =
+//     "<div class='errPage'><div class='contErr'><h2>You are not logged in!!</h2></div><div><a href='/login'>Log in</a></div></div>"
+// }
 
 
 import { showAlert } from "./alert.js";

@@ -1,0 +1,61 @@
+.logout-link {
+    cursor: pointer;
+    z-index: 999;
+}
+
+
+.user-options {
+    display: none;
+    position: absolute;
+    background: #FE6430;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    list-style: none;
+    left: -82px;
+    top: 30px;
+}
+
+.user-icon {
+    position: relative;
+}
+
+.user-icon:hover .user-options {
+    display: block;
+}
+
+.user-options a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-options:hover {
+    background: black;
+}
+
+.user-icon.clicked .user-options {
+    display: none;
+}
+
+
+.user-icon {
+    position: relative;
+
+
+}
+
+.user-icon:hover .user-options {
+    display: block;
+}
+
+.user-options a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-options:hover {
+    background: black;
+}

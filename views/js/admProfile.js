@@ -1,24 +1,24 @@
 
-var obj
-if (document.cookie) {
-  obj = JSON.parse(document.cookie.substring(6))
+// var obj
+// if (document.cookie) {
+//   obj = JSON.parse(document.cookie.substring(6))
 
-} else {
-  document.body.innerHTML =
-    "<div class='errPage'><div class='contErr'><h2>You are not logged in!!</h2></div><div><a href='/admlogin'>Log in</a></div></div>"
-}
+// } else {
+//   document.body.innerHTML =
+//     "<div class='errPage'><div class='contErr'><h2>You are not logged in!!</h2></div><div><a href='/login'>Log in</a></div></div>"
+// }
 
-var el = document.querySelector(".container1");
+// var el = document.querySelector(".container1");
 
-if (obj._id && obj.role_id === 1) {
-  el.innerHTML +=
-    '<div class="user-container"><i class="fas fa-user"></i>' +
-    '<span>' + obj.name + '</span>' +
-    '<br/><span>' + obj.role + '</span></div></div>';
-} else {
-  document.body.innerHTML =
-    "<div class='errPage'><div class='contErr'><h2>You are not logged in!!</h2></div><div><a href='/admlogin'>Log in</a></div></div>";
-}
+// if (obj._id && obj.role_id === 1) {
+//   el.innerHTML +=
+//     '<div class="user-container"><i class="fas fa-user"></i>' +
+//     '<span>' + obj.name + '</span>' +
+//     '<br/><span>' + obj.role + '</span></div></div>';
+// } else {
+//   document.body.innerHTML =
+//     "<div class='errPage'><div class='contErr'><h2>You are not logged in!!</h2></div><div><a href='/login'>Log in</a></div></div>";
+// }
 
 
 

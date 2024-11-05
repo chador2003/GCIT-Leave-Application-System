@@ -10,151 +10,173 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- CSS Styles  -->
-  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/footer.css">
-  <!-- CSS Styles  -->
-
-
-  <!-- Font Awesome Icons -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="./css/index.css">
-
+  <link rel="stylesheet" href="./css/dropdown.css">
   <title>GCITLA</title>
- 
+
 </head>
 
 <body>
-    <!-- Nav Bar  -->
-    <nav class="container-fluid p-0">
-        <div class="nav-wrapper">
-            <div class="logo">
-                <img src="img/Logo.png" alt="">
+  <!-- Nav Bar  -->
+  <nav class="container-fluid p-0">
+    <div class="nav-wrapper">
+      <div class="logo">
+        <img src="img/Logo.png" alt="">
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/applications">Apply Leave</a></li>
+          <li class="nav-item user-icon">
+            <i class="far fa-user-circle" id="userIcon"></i>
+            <div class="user-options" id="userOptions">
+              <a href="/myProfile" class="profile-link">Profile</a>
+              <div id="logout"><a id="logout" class="logout-link">Logout</a></div>
             </div>
-            <div class="links">
-                <ul>
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/applications">Apply Leave</a>
-                      </li>
-                      <li class="nav-item user-icon">
-                        <i class="far fa-user-circle" id="userIcon"></i>
-                        <div class="user-options" id="userOptions">
-                            <a href="/myProfile" class="profile-link">Profile</a>
-                            <div id="logout"><a id="logout" class="logout-link">Logout</a></div>
-                        </div>
-                    </li>  
-                </ul>
-            </div>
-            
-        </div>
-    </nav>
-    <!-- Nav End -->
+          </li>
 
+        </ul>
+      </div>
 
-    <!-- home-->
-    <div class="content">
-        <div class="container-fluid p-0 banner">
-          
-            <div class="row banner-content">
-                <h1>Request Leave Application - fast, reliable and save time.</h1>
-                <button class="btn3">Apply Leave</button>
-            </div>
-            <img src="img/img1.png" alt="">
-        </div>
     </div>
-    <!-- home end -->
+  </nav>
+  <!-- Nav End -->
 
 
+  <!-- home-->
+  <div class="content">
+    <div class="container-fluid p-0 banner">
 
+      <div class="row banner-content">
+        <h1>Request Leave Application - fast, reliable and save time.</h1>
+        <button class="btn3">Apply Leave</button>
+      </div>
+      <img src="img/img1.png" alt="">
+    </div>
+  </div>
+  <!-- home end -->
 
+  <!--first section start-->
 
-      <!--first section start-->
-      
-      <div class="content2">
-        <div class="grid-container2">    
-          <div class="grid-term1">
-              <div class="button-like">
-                    Mission
-              </div>
-              <img src="img/img3.png" alt="">
-              <div class="button-like">
-                    Vision
-              </div>
-          </div>
+  <div class="content2">
+    <div class="grid-container2">
+      <div class="grid-term1">
+        <div class="button-like">
+          Mission
+        </div>
+        <img src="img/img3.png" alt="">
+        <div class="button-like">
+          Vision
         </div>
       </div>
-      <div class="para">
-        <div class="grid-item2">
-          <p>To simplify leave request processing for GCIT students, SSO, and administration through an intuitive web application, reducing paperwork, saving time, and enhancing the overall efficiency of the leave management process.</p></div>
-        <div class="grid-item2">
-          <p>To create a seamless digital leave management system at GCIT, enabling students to effortlessly request leave and SSO/administration to efficiently approve or reject requests, promoting a more productive and balanced campus life for all.</p> 
+    </div>
+  </div>
+  <div class="para">
+    <div class="grid-item2">
+      <p>To simplify leave request processing for GCIT students, SSO, and administration through an intuitive web
+        application, reducing paperwork, saving time, and enhancing the overall efficiency of the leave management
+        process.</p>
+    </div>
+    <div class="grid-item2">
+      <p>To create a seamless digital leave management system at GCIT, enabling students to effortlessly request leave
+        and SSO/administration to efficiently approve or reject requests, promoting a more productive and balanced
+        campus life for all.</p>
+    </div>
+  </div>
+
+  <!--first section end-->
+
+
+  <!--second section start-->
+
+  <div class="button">
+    <div class="btn-like">Category Of Leave</div>
+  </div>
+
+  <!-- Carousel -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- The slideshow/carousel -->
+
+    <div id="demo" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/sl.png" alt="Los Angeles" class="d-block w-100 vh-100" style="object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+          <img src="img/ll.png" alt="Chicago" class="d-block w-100 vh-100" style="object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+          <img src="img/el.png" alt="New York" class="d-block w-100 vh-100" style="object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+          <img src="img/tl.png" alt="New York" class="d-block w-100 vh-100" style="object-fit: cover;">
         </div>
       </div>
 
-      <!--first section end-->
-
-
-      <!--second section start-->
-
-      <div class="button">
-        <div class="btn-like">Category Of Leave</div>
-      </div>
-      
-      <!-- Carousel -->
-      <div id="demo" class="carousel slide" data-bs-ride="carousel">
-  
-        <!-- The slideshow/carousel -->
-
-         <div id="demo" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/sl.png" alt="Los Angeles" class="d-block w-100 vh-100" style="object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-              <img src="img/ll.png" alt="Chicago" class="d-block w-100 vh-100" style="object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-              <img src="img/el.png" alt="New York" class="d-block w-100 vh-100" style="object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-              <img src="img/tl.png" alt="New York" class="d-block w-100 vh-100" style="object-fit: cover;">
-            </div>
-          </div>
-        
-          <!-- Left and right controls/icons -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div> 
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
     <!--second section end-->
-  
+
 
     <!-- Footer -->
     <footer>
-        <section class="footer">
-            <img src="img/Logo.png" alt="Logo" class="type2">
-            <div class="social">
-                <a href="#"><i class="fa-brands fa-facebook" style="color: #e3e3e3;"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram" style="color: #e3e3e3;"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube" style="color: #e3e3e3;"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter" style="color: #e3e3e3;"></i></a>
-            </div>
-            <p class="copyright">
-                Copyright@GCITLA
-            </p>
-        </section>
-    
+      <section class="footer">
+        <img src="img/Logo.png" alt="Logo" class="type2">
+        <div class="social">
+          <a href="#"><i class="fa-brands fa-facebook" style="color: #e3e3e3;"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram" style="color: #e3e3e3;"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube" style="color: #e3e3e3;"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter" style="color: #e3e3e3;"></i></a>
+        </div>
+        <p class="copyright">
+          Copyright@GCITLA
+        </p>
+      </section>
+
 
     </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var userIcon = document.getElementById('userIcon');
+        var userOptions = document.getElementById('userOptions');
+
+        var isDropdownDisplayed = false;
+
+        userIcon.addEventListener('click', function (event) {
+          event.stopPropagation();
+          isDropdownDisplayed = !isDropdownDisplayed;
+          userOptions.style.display = isDropdownDisplayed ? 'block' : 'none';
+        });
+
+        userOptions.addEventListener('click', function (event) {
+          event.stopPropagation();
+        });
+
+        document.addEventListener('click', function (event) {
+          if (event.target !== userIcon && !userOptions.contains(event.target)) {
+            userOptions.style.display = 'none';
+            isDropdownDisplayed = false;
+          }
+        });
+      });
+
+    </script>
     <!-- Footer End  -->
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://kit.fontawesome.com/c8c9e54473.js" crossorigin="anonymous"></script>
@@ -166,45 +188,17 @@
 
 
     <script>
-        document.querySelector('.btn3').addEventListener('click', function() {
-            // Replace 'register.html' with the actual URL of your register page
-            window.location.href = '/applications';
-        });
-    </script> 
-    
-    <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var userIcon = document.getElementById('userIcon');
-    var userOptions = document.getElementById('userOptions');
-
-    var isDropdownDisplayed = false;
-
-    userIcon.addEventListener('click', function(event) {
-        event.stopPropagation();
-        isDropdownDisplayed = !isDropdownDisplayed;
-        userOptions.style.display = isDropdownDisplayed ? 'block' : 'none';
-    });
-
-    userOptions.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
-
-    document.addEventListener('click', function(event) {
-        if (event.target !== userIcon && !userOptions.contains(event.target)) {
-            userOptions.style.display = 'none';
-            isDropdownDisplayed = false;
-        }
-    });
-});
+      document.querySelector('.btn3').addEventListener('click', function () {
+        // Replace 'register.html' with the actual URL of your register page
+        window.location.href = '/applications';
+      });
+    </script>
 
 
 
-  </script>
-  
-  
 
-    
 
 </body>
+<script type="module" src="./js/logout.js"></script>
 
 </html>

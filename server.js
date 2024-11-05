@@ -3,6 +3,10 @@ const dotenv = require('dotenv')
 dotenv.config({ path: './config.env' })
 const app = require('./app')
 const nodemailer = require('nodemailer');
+const express = require('express')
+const path = require('path')
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'views')))
 
 const DB = process.env.DATABASE.replace(
     'PASSWORD',
