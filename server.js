@@ -5,6 +5,12 @@ const app = require('./app')
 const nodemailer = require('nodemailer');
 const express = require('express')
 const path = require('path')
+const cors = require('cors')
+// Configure CORS to allow requests from your frontend
+app.use(cors({
+    origin: 'https://leaveapplication-l4ze.onrender.com' // Replace this with your frontend URL
+}))
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'views')))
 
